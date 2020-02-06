@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>My Library</title>
+</head>
+
+<body class="bg-gray-100 overflow-x-hidden font-sans select-none">
+
+    <header>
+        <h1 class="bg-purple-800 text-4xl text-gray-100 pl-6 pt-2 h-16 shadow">My Library<span
+                class="text-gray-300 pl-4 mt-4 text-lg font-light">~Add books to your virtual library.</span></h1>
+    </header>
+
+    <div class="container">
+        <form class="flex flex-col items-start mt-4 text-gray-700" id="book-form">
+
+            <div class="form-group flex flex-row justify-start items-center w-screen py-1 ml-6">
+                <label class="w-1/6" for="book-title">Title:</label>
+                <input class="form-control border border-gray-400 shadow-inner" id="book-title" type="text">
+            </div>
+
+            <div class="form-group flex flex-row justify-start items-center w-screen py-1 ml-6 w-screen">
+                <label class="w-1/6" for="book-author">Author:</label>
+                <input class="form-control border border-gray-400 shadow-inner" id="book-author" type="text">
+            </div>
+
+            <div class="form-group flex flex-row justify-start items-center w-screen py-1 ml-6">
+                <label class="w-1/6" for="book-pages">Number of Pages:</label>
+                <input class="form-control border border-gray-400 shadow-inner" id="book-pages" type="text">
+            </div>
+
+            <div class="form-group flex flex-row justify-start items-center w-screen py-1 ml-6">
+                <label for="book-read">Read</label>
+                <input class="form-control border-gray-400 shadow-inner ml-2" id="book-read" type="checkbox">
+            </div>
+
+            <input type="submit" value="ADD BOOK"
+                class="flex flex-row bg-orange-500 w-24 h-8 rounded justify-center items-center text-white shadow-inner text-xs font-bold ml-6 mt-4">
+        </form>
+
+        <div
+            class="table-head flex flex-row w-screen justify-start items-center bg-gray-200 h-12 text-gray-700 font-bold mt-4 shadow">
+            <div class="w-1/5 text-center">Title</div>
+            <div class="w-1/5 text-center">Author</div>
+            <div class="w-1/5 text-center">Number of Pages</div>
+            <div class="w-1/5 text-center">Read</div>
+            <button class="w-6 h-6 invisible">X</button>
+        </div>
+
+        <div id="book-list"></div>
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
