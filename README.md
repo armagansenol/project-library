@@ -1,5 +1,7 @@
-Library project for The Odin Project curriculum.
+Library App
 
-For more info: https://www.theodinproject.com/courses/javascript/lessons/library
+An application where you can create a reading list and keep track of your books.
 
-Tailwind Css used for styling the page. (Which is not a requirement.)
+HTML, CSS, JavaScript. Tailwind CSS used for styling.
+
+Part of The Odin Project curriculum, for more info: https://www.theodinproject.com/courses/javascript/lessons/library
