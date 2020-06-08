@@ -1,12 +1,29 @@
-const myLibrary = [new Book('The Catcher in the Rye', 'J.D. Salinger', '234', true), new Book('Journey to the End of the Night', 'Louis Ferdinand Celine', '464', true)];
-const books = myLibrary;
-books.forEach((item) => render(item));
+let myLibrary = [new Book('The Catcher in the Rye', 'J.D. Salinger', '234', true), new Book('Journey to the End of the Night', 'Louis Ferdinand Celine', '464', true)];
+myLibrary.forEach((item) => render(item));
 
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read ? 'Yes' : 'No';
+};
+
+if (!localStorage.getItem('library')) {
+    populateStorage();
+} else {
+    setStyles();
+};
+
+function populateStorage() {
+    let stored = JSON.stringify(myLibrary);
+    localStorage.setItem('library', stored);
+    setStyles();
+};
+
+function setStyles() {
+    let loaded = localStorage.getItem('library');
+    let books = JSON.parse(loaded);
+    render(books[books.length - 1]);
 };
 
 document.querySelector('#book-form').addEventListener('submit', (e) => {
@@ -20,7 +37,8 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
         alert('Please fill in all fields!');
     } else {
         const newBook = new Book(title, author, pages, read);
-        render(newBook);
+        myLibrary.push(newBook);
+        populateStorage();
         clearForm();
     }
 });
@@ -47,7 +65,9 @@ document.querySelector('#book-list').addEventListener('click', (e) => {
 function deleteBook(el) {
     if (el.classList.contains('remove')) {
         el.parentElement.remove();
-    }
+        let ti = el.parentElement.firstElementChild.textContent;
+        myLibrary
+     }
 };
 
 function clearForm() {
